@@ -1,0 +1,79 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Data Mahasiswa</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <!-- Pull to Refresh -->
+  <ion-refresher slot="fixed" (ionRefresh)="refresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
+  <!-- Form -->
+  <ion-item>
+    <ion-input placeholder="NIM" [(ngModel)]="form.nim"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-input placeholder="Nama" [(ngModel)]="form.nama"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-input placeholder="Program Studi" [(ngModel)]="form.program_studi"></ion-input>
+  </ion-item>
+
+  <ion-radio-group [(ngModel)]="form.jenis_kelamin">
+    <ion-item>
+      <ion-label>Laki-laki</ion-label>
+      <ion-radio value="L"></ion-radio>
+    </ion-item>
+    <ion-item>
+      <ion-label>Perempuan</ion-label>
+      <ion-radio value="P"></ion-radio>
+    </ion-item>
+  </ion-radio-group>
+
+  <ion-button expand="full" (click)="simpan()">
+    Simpan
+  </ion-button>
+
+  <!-- Live Search -->
+  <ion-searchbar
+    placeholder="Cari nama..."
+    (ionInput)="filter($event)">
+  </ion-searchbar>
+
+  <!-- Sliding List -->
+  <ion-item-sliding *ngFor="let m of filteredMahasiswa">
+
+    <ion-item>
+      <ion-label>
+        <h2>{{ m.nama }}</h2>
+        <p>{{ m.nim }} - {{ m.program_studi }}</p>
+        <p>JK: {{ m.jenis_kelamin }}</p>
+      </ion-label>
+    </ion-item>
+
+    <ion-item-options side="end">
+
+      <!-- Tombol Edit -->
+      <ion-item-option 
+        color="warning" 
+        (click)="edit(m)">
+        Edit
+      </ion-item-option>
+
+      <!-- Tombol Hapus -->
+      <ion-item-option 
+        color="danger" 
+        (click)="hapus(m.id)">
+        Hapus
+      </ion-item-option>
+
+    </ion-item-options>
+
+  </ion-item-sliding>
+
+</ion-content>

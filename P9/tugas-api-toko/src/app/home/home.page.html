@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Inventaris Toko</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <ion-item>
+    <ion-input
+      placeholder="Nama Barang"
+      [(ngModel)]="nama_barang">
+    </ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-input
+      type="number"
+      placeholder="Harga"
+      [(ngModel)]="harga">
+    </ion-input>
+  </ion-item>
+
+  <ion-button expand="full" (click)="simpan()">
+    Simpan
+  </ion-button>
+
+  <ion-list>
+    <ion-item *ngFor="let item of listBarang">
+      <ion-label>
+        <h2>{{ item.nama_barang }}</h2>
+        <p>Rp {{ item.harga }}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+</ion-content>

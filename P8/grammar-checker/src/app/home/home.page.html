@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Live Grammar Checker</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <ion-textarea
+    placeholder="Type English sentence..."
+    (ionInput)="onTextChange($event)">
+  </ion-textarea>
+
+  <div *ngIf="loading" style="margin-top:20px">
+    <ion-spinner></ion-spinner>
+  </div>
+
+  <div *ngIf="result" style="margin-top:20px">
+
+    <h2>Status: {{ result.status }}</h2>
+
+    <p *ngIf="result.correction">
+      Correction: {{ result.correction }}
+    </p>
+
+  </div>
+
+</ion-content>

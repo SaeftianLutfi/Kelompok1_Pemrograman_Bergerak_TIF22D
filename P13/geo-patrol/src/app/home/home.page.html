@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>GeoPatrol OSM</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div id="map" style="height:60vh;"></div>
+
+  <ion-card>
+    <ion-card-content>
+      <p><b>Latitude:</b> {{ latitude }}</p>
+      <p><b>Longitude:</b> {{ longitude }}</p>
+      <p><b>Barcode:</b> {{ barcodeResult }}</p>
+
+      <img *ngIf="capturedImage"
+           [src]="capturedImage"
+           style="width:100%; margin-top:10px; border-radius:10px;">
+    </ion-card-content>
+  </ion-card>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="mulaiPatroli()">
+      <ion-icon name="scan"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+</ion-content>

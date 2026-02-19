@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Pengiriman Paket</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div class="map-container" [hidden]="!showMap">
+    <div id="map" style="height: 60vh;"></div>
+  </div>
+
+  <ion-card>
+    <ion-card-content>
+
+      <ion-input
+        placeholder="No Resi"
+        [(ngModel)]="no_resi">
+      </ion-input>
+
+      <p>Latitude: {{ latitude }}</p>
+      <p>Longitude: {{ longitude }}</p>
+
+      <img *ngIf="fotoPreview"
+           [src]="fotoPreview"
+           style="width:100%; margin-top:10px;">
+
+      <ion-button expand="full" (click)="ambilFoto()">
+        Ambil Foto Paket
+      </ion-button>
+
+      <ion-button expand="full" color="success" (click)="kirimLaporan()">
+        Kirim Laporan
+      </ion-button>
+
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>

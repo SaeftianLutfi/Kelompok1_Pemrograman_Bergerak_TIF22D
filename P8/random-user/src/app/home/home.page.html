@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Random User Generator</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <ion-button expand="full" (click)="generateUser()">
+    Generate User
+  </ion-button>
+
+  <div *ngIf="result" style="margin-top:20px; text-align:center;">
+
+    <img [src]="result.photo" width="120" style="border-radius:50%;" />
+
+    <h2>{{ result.name }}</h2>
+
+    <p>{{ result.email }}</p>
+
+  </div>
+
+</ion-content>

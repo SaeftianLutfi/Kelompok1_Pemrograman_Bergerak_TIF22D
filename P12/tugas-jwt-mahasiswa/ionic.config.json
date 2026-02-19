@@ -1,0 +1,7 @@
+{
+  "name": "tugas-jwt-mahasiswa",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
