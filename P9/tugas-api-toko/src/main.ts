@@ -1,6 +1,8 @@
 import { bootstrapApplication } from '@angular/platform-browser';
 import { RouteReuseStrategy, provideRouter, withPreloading, PreloadAllModules } from '@angular/router';
 import { IonicRouteStrategy, provideIonicAngular } from '@ionic/angular/standalone';
+
+// Mengimpor provideHttpClient untuk mengaktifkan fitur HTTP (HttpClient) di aplikasi
 import { provideHttpClient } from '@angular/common/http';
 
 import { routes } from './app/app.routes';
@@ -11,6 +13,8 @@ bootstrapApplication(AppComponent, {
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     provideIonicAngular(),
     provideRouter(routes, withPreloading(PreloadAllModules)),
+    
+    // Mengaktifkan HttpClient agar aplikasi bisa melakukan request ke backend API
     provideHttpClient(),
   ],
 });
