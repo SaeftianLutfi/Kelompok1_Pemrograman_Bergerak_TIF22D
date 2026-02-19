@@ -3,6 +3,7 @@ import { IonicModule, ToastController } from '@ionic/angular';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Mahasiswa } from '../services/mahasiswa';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-home',
@@ -27,7 +28,8 @@ export class HomePage implements OnInit {
 
   constructor(
     private service: Mahasiswa,
-    private toast: ToastController
+    private toast: ToastController,
+    private alertController: AlertController
   ) {}
 
   ngOnInit() {
@@ -87,10 +89,35 @@ export class HomePage implements OnInit {
     }
   }
 
-  hapus(id:number){
-    this.service.delete(id).subscribe(()=>{
-      this.loadData();
+  async hapus(id: number) {
+    const alert = await this.alertController.create({
+      header: 'Konfirmasi',
+      message: 'Apakah Anda yakin ingin menghapus data ini?',
+      buttons: [
+        {
+          text: 'Batal',
+          role: 'cancel'
+        },
+        {
+          text: 'Hapus',
+          role: 'destructive',
+          handler: () => {
+            this.service.delete(id).subscribe(async () => {
+              this.loadData();
+
+              const t = await this.toast.create({
+                message: 'Data berhasil dihapus',
+                duration: 2000,
+                color: 'success'
+              });
+              t.present();
+            });
+          }
+        }
+      ]
     });
+
+    await alert.present();
   }
 
   edit(data: any) {
