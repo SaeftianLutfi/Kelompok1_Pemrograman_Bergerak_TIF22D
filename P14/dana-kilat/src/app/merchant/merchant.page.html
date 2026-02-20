@@ -1,0 +1,53 @@
+<!-- Header halaman Merchant -->
+<ion-header>
+  <ion-toolbar color="primary">
+    <!-- Judul halaman -->
+    <ion-title>Merchant</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<!-- Konten utama halaman -->
+<ion-content class="ion-padding">
+
+  <!-- Input untuk nama merchant -->
+  <ion-item>
+    <ion-label position="stacked">Nama Merchant</ion-label>
+    <!-- Two-way binding ke variabel merchantName di merchant.page.ts -->
+    <ion-input [(ngModel)]="merchantName"></ion-input>
+  </ion-item>
+
+  <!-- Input untuk nominal pembayaran -->
+  <ion-item>
+    <ion-label position="stacked">Nominal Bayar</ion-label>
+    <!-- Type number agar hanya bisa input angka -->
+    <!-- Two-way binding ke variabel amount -->
+    <ion-input type="number" [(ngModel)]="amount"></ion-input>
+  </ion-item>
+
+  <!-- Tombol untuk generate QR -->
+  <!-- Ketika diklik akan menjalankan function generateQR() di TypeScript -->
+  <ion-button expand="block" (click)="generateQR()" style="margin-top:15px;">
+    Generate QR
+  </ion-button>
+
+  <!-- QR hanya akan muncul jika qrData sudah terisi -->
+  <!-- *ngIf artinya conditional rendering -->
+  <div *ngIf="qrData" style="text-align:center; margin-top:25px;">
+    
+    <!-- Komponen dari library angularx-qrcode -->
+    <!-- qrdata berisi JSON string yang sudah dibuat -->
+    <!-- width mengatur ukuran QR -->
+    <qrcode
+      [qrdata]="qrData"
+      [width]="220">
+    </qrcode>
+
+  </div>
+
+  <!-- Tombol untuk pindah ke halaman User -->
+  <!-- Akan menjalankan function goToUser() -->
+  <ion-button expand="block" color="success" (click)="goToUser()" style="margin-top:20px;">
+    Pindah ke User
+  </ion-button>
+
+</ion-content>

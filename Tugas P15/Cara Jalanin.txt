@@ -1,0 +1,30 @@
+node server.js dulu di server-objek
+baru ionic serve ojek-siber
+
+Tugas 1
+isi
+Username: ' OR '1'='1
+Password: (kosong)
+klik Login (Tidak Aman)
+
+- Tugas Blue Team
+Lihat terminal backend.
+Contoh log yang muncul:
+[FORENSIC LOG] TIME: 2026-02-17T09:10:21.000Z 
+IP: ::1 
+DEVICE: Mozilla/5.0 ...
+PATH: /api/login-vulnerable
+Catat:
+-Waktu kejadian
+-IP address
+-Endpoint yang diserang
+
+Tugas 2 Fake GPS
+Aktifkan Fake GPS
+Kirim Lokasi ke Server
+
+cek output
+[ALERT] FAKE GPS DETECTED from IP: ::1
+PATH: /api/absen-lokasi
+
+Tugas 3 Postman

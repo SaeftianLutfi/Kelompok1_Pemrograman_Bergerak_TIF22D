@@ -1,0 +1,40 @@
+<!-- HEADER UTAMA HALAMAN -->
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <!-- Judul halaman yang tampil di atas -->
+    <ion-title>
+      Blank
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<!-- CONTENT UTAMA HALAMAN -->
+<ion-content [fullscreen]="true">
+
+  <!-- Header versi collapse (efek mengecil saat discroll di mobile) -->
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Blank</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <!-- Tombol navigasi ke halaman User -->
+  <!-- routerLink digunakan untuk berpindah halaman tanpa reload -->
+  <ion-button expand="block" routerLink="/user">
+    Masuk sebagai User
+  </ion-button>
+
+  <!-- Container default bawaan Ionic (tidak berpengaruh ke logic aplikasi) -->
+  <div id="container">
+    <strong>Ready to create an app?</strong>
+
+    <!-- Link dokumentasi Ionic (tidak terkait fitur QRIS) -->
+    <p>
+      Start with Ionic 
+      <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">
+        UI Components
+      </a>
+    </p>
+  </div>
+
+</ion-content>

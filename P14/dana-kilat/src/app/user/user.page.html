@@ -1,0 +1,42 @@
+<!-- HEADER HALAMAN USER -->
+<!-- Menampilkan title aplikasi bagian user (DanaKilat) -->
+<ion-header>
+  <ion-toolbar color="success">
+    <ion-title>DanaKilat (User)</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <!-- MENAMPILKAN SALDO USER -->
+  <!-- {{ saldo }} adalah data binding dari user.page.ts -->
+  <h2>Saldo:</h2>
+  <h1>Rp {{ saldo }}</h1>
+
+  <!-- KOMPONEN SCANNER QR -->
+  <!-- zxing-scanner digunakan untuk membaca QR dari kamera -->
+  <!-- (scanSuccess) akan memanggil function onCodeResult() -->
+  <!-- $event berisi string hasil scan QR -->
+  <zxing-scanner
+    (scanSuccess)="onCodeResult($event)">
+  </zxing-scanner>
+
+  <!-- MENAMPILKAN TRANSAKSI TERAKHIR -->
+  <!-- *ngIf digunakan agar bagian ini hanya muncul setelah scan berhasil -->
+  <div *ngIf="lastTransaction" style="margin-top:20px;">
+    <h3>Transaksi Terakhir</h3>
+
+    <!-- Menampilkan nama merchant dari data JSON hasil scan -->
+    <p>Merchant: {{ lastTransaction.merchant }}</p>
+
+    <!-- Menampilkan nominal harga dari QR -->
+    <p>Nominal: Rp {{ lastTransaction.harga }}</p>
+  </div>
+
+  <!-- TOMBOL KEMBALI KE HALAMAN MERCHANT -->
+  <!-- Digunakan untuk navigasi antar halaman -->
+  <ion-button expand="block" color="primary" (click)="goToMerchant()" style="margin-top:20px;">
+    Kembali ke Merchant
+  </ion-button>
+
+</ion-content>

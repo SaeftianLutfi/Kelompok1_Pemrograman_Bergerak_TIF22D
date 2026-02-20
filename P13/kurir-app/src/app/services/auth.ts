@@ -7,7 +7,7 @@ import { Preferences } from '@capacitor/preferences';
 })
 export class AuthService {
 
-  api = 'http://192.168.43.128:3000';
+  api = 'http://192.168.100.171:3000';
 
   constructor(private http: HttpClient) {}
 

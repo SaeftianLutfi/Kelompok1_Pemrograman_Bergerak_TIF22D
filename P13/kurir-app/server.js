@@ -9,7 +9,7 @@ const app = express();
 const SECRET_KEY = "kurir-secret-key";
 
 app.use(cors());
-app.use(express.json({ limit: '10mb' }));
+app.use(express.json({ limit: '100mb' }));
 
 // ================== LAPORAN ==================
 app.post('/home', verifyToken, async (req, res) => {
